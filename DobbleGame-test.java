@@ -80,4 +80,49 @@ public class dobblegame {
         }
         return 0;
     }
+
+	    //Creación del menu
+    void createGameMenu() {
+        try {
+            System.out.print("Coloca el numero de cartas: ");
+            int numberOfCards = Integer.parseInt(input.nextLine());
+            dobble = new Dobble(numberOfCards);
+            for (Player player : players) player.reset();
+            currentIndex = 0;
+            System.out.println("Juego creado.");
+        } catch (Exception ignored) {
+        }
+    }
+
+    //agrega un nuevo jugador al juego
+    void addPlayerMenu() {
+        System.out.print("Coloca el nombre del jugador: ");
+        String name = input.nextLine()
+                .strip();
+        addPlayer(new Player(name));
+    }
+
+    //empieza el juego
+
+    void playMenu() {
+        if (players.size() < 2) {
+            System.out.println("Por favor, agrega a lo menos 02 jugadores para jugar a Dobble.");
+            return;
+        }
+        if (dobble == null) {
+            System.out.println("Por favor crea un juego para jugar a Dobble");
+            return;
+        }
+        while (!gameOver) {
+            playRound();
+        }
+        System.out.println(this);
+    }
+
+    //muestra la estadistica
+    void statsMenu() {
+
+        System.out.println(this);
+    }
+		
 }
