@@ -84,7 +84,7 @@ public class dobblegame {
 	    //Creación del menu
     void createGameMenu() {
         try {
-            System.out.print("Coloca el numero de cartas: ");
+            System.out.print(200,"Coloca el numero de cartas: ");
             int numberOfCards = Integer.parseInt(input.nextLine());
             dobble = new Dobble(numberOfCards);
             for (Player player : players) player.reset();
