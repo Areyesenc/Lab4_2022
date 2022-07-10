@@ -1,4 +1,4 @@
-package org.example;
+package model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,38 +6,46 @@ import java.util.List;
 public class Card {
     List<Symbol> symbols;
 
-    //crea una cara
+    /**
+     * Crea una nueva carta.
+     */
     public Card() {
-
         symbols = new ArrayList<>();
     }
 
+
     /**
-     * Crear una carta con la lista de símbolos obtenioda.
+     * Creaa una nueva carta y obtiene una lsta de simbolos.
      *
-     * @param symbols es la lista de símbolos.
+     * @param symbols - lista de simbolos.
      */
     public Card(List<Symbol> symbols) {
-
         this.symbols = symbols;
     }
-    //Agrega los simbobolos a la carta
-    public void addSymbol(Symbol symbol) {
 
+    /**
+     * Agrega un simbolo a la carta
+     *
+     * @param symbol - el simbolo a agregar
+     */
+    public void addSymbol(Symbol symbol) {
         symbols.add(symbol);
     }
-    //obtiene los símbolos de la carta.
 
+    /**
+     * obtiene el simbolo en la carta
+     *
+     * @return la lista de simbolos en la carta
+     */
     public List<Symbol> getSymbols() {
-
         return symbols;
     }
 
     /**
      * Comprueba si la carta tiene un símbolo.
      *
-     * @param symbol el símbolo a comprobar
-     * @return true si el símbolo está en la carta.
+     * @param symbol el simbolo comprueba para
+     * @return true si la carta esta con el simbolo.
      */
     public boolean hasSymbol(Symbol symbol) {
         return symbols.stream()

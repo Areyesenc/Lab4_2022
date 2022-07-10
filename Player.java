@@ -1,4 +1,4 @@
-package org.example;
+package model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,39 +7,52 @@ public class Player {
     private final String name;
     private List<Card> cards;
 
-    //se crea un nuevo jugardor
+    /**
+     * crea un nuevo jugador
+     *
+     * @param name - el nombre del jugador
+     */
     public Player(String name) {
         this.name = name;
         cards = new ArrayList<>();
     }
-//Agregamos cartas al juegdor
-    public void addCard(Card card) {
 
+    /**
+     * Añade una carta al juagdor
+     *
+     * @param card la carta a agregar
+     */
+    public void addCard(Card card) {
         cards.add(card);
     }
- // obtiene las cartas de un jugdor
-    //@return las cartas del jugador
-    public List<Card> getCards() {
 
+    /**
+     * obtienen las cartas de los jugadores
+     *
+     * @return la carta del juagdor
+     */
+    public List<Card> getCards() {
         return cards;
     }
 
- // obtenemos el nombre del jugador
-    //@return erl nombre del jugador
+    /**
+     * obtiene el nombre del jugador
+     *
+     * @return el nomnbre del jugadoir
+     */
     public String getName() {
-
         return name;
     }
 
-//restablece las cartas de todos los jugadores
+    /**
+     * Restablecer las cartas de los jugadores
+     */
     public void reset() {
-
         cards = new ArrayList<>();
     }
 
     @Override
     public String toString() {
-
         return String.format("%s: (%d cartas)", name, cards.size());
     }
 }

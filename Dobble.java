@@ -1,4 +1,4 @@
-package org.example;
+package model;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,29 +10,30 @@ public class Dobble {
     private final List<Card> cards;
 
     /**
-     * Crea una nueva baraja Dobble con el número de cartas dado
+     * Crea un nuevo modelo de baraja de Dobble con el número de cartas dado
      *
-     * @param n el número de cartas
+     * @param n - el n° de cartas
      */
     public Dobble(int n) {
         cards = generateCards(n);
     }
+
     /**
-     * Generar el número dado de cartas dobble
+     * Genera el número dado de cartas para dobble
      *
-     * @param numberOfCards el número de cartas
-     * @return la lista de cartas generada
+     * @param numberOfCards el n° de cartas
+     * @return generar una lista de cartas
      */
     private static List<Card> generateCards(int numberOfCards) {
         List<Card> cards = new ArrayList<>();
         int n = getPrimeForKCards(numberOfCards);
-        //la primera carta..
+        // the first card
         cards.add(new Card(IntStream.range(1, n + 2)
                 .boxed()
                 .map(Symbol::new)
                 .collect(Collectors.toList())));
 
-        //las proximas n cartas...
+        // the next n cards
         for (int j = 1; j <= n; j++) {
             Card card = new Card();
             card.addSymbol(new Symbol(1));
@@ -41,7 +42,8 @@ public class Dobble {
             }
             cards.add(card);
         }
-        //las proximas n*n cartas
+
+        // the next n*n cards
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j++) {
                 Card card = new Card();
@@ -52,40 +54,43 @@ public class Dobble {
                 cards.add(card);
             }
         }
-        //orden aleatorio
+        // shuffle the deck before returning
         Collections.shuffle(cards);
         return cards.subList(0, numberOfCards);
     }
+
     /**
-     * Obtener el número primo correcto para el número de cartas
+     * Obtener el número primo correcto para el número de caertas
      *
-     * @param numberOfCards el número de cartas
-     * @return el número primo para el número de cartas
+     * @param numberOfCards el numero de cartas
+     * @return el número primo del número de cartas
      */
     private static int getPrimeForKCards(int numberOfCards) {
-        List<Integer> primes = getPrimseUpTo(numberOfCards);
+        List<Integer> primes = getPrimesUpTo(numberOfCards);
         for (int prime : primes) {
             if (prime * prime + prime + 1 >= numberOfCards) return prime;
         }
         return primes.get(primes.size() - 1);
     }
+
     /**
-     * Obtener números primos hasta n
+     * Obtiene numeros primos hasta n
      *
-     * @param n el límite superior
-     * @return una lista de números primos hasta n
+     * @param n el limite superior
+     * @return a una lista de numeros primos hasta n
      */
-    private static List<Integer> getPrimseUpTo(int n) {
+    private static List<Integer> getPrimesUpTo(int n) {
         return IntStream.range(2, n + 1)
                 .boxed()
                 .filter(Dobble::isPrime)
                 .collect(Collectors.toList());
     }
+
     /**
-     * Comprobar si un número dado es primo o no
+     * Comprueba si un número dado es primo o no
      *
-     * @param n el número para comprobar el numero primo
-     * @return true si es primo... false en caso contrario
+     * @param n - el número para comprobar si es primo
+     * @return true si es "primo falso" - osea que el resultado no sea primo, entrega verdadero...
      */
     private static boolean isPrime(int n) {
         if (n < 2) return false;
@@ -96,9 +101,12 @@ public class Dobble {
         return true;
     }
 
-    //obtiene la lista de cartas, retornando la lista de cartas del mazo.
+    /**
+     * Obtiene la lista de cartas
+     *
+     * @return la lista de cartas del mazo
+     */
     public List<Card> getCards() {
-
         return cards;
     }
 }

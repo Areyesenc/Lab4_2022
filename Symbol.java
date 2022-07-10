@@ -1,21 +1,21 @@
-package org.example;
+package model;
 
 public class Symbol {
     private final int value;
+
     /**
-     * Crear un nuevo símbolo
      *
-     * @param value el valor del símbolo
+     *
+     * @param valueCreate un nuevo simbolo hacia el valor del símbolo
      */
     public Symbol(int value) {
-
         this.value = value;
     }
 
     /**
      * Obtiene el valor del símbolo
      *
-     * @return el valor del símbolo
+     * @return el valor del mismo._.
      */
     public int getValue() {
         return value;
@@ -23,14 +23,12 @@ public class Symbol {
 
     @Override
     public String toString() {
-
         return String.valueOf(value);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null || obj.getClass() != this.getClass())
-            return false;
+        if (obj == null || obj.getClass() != this.getClass()) return false;
         return value == ((Symbol) obj).value;
     }
 }
