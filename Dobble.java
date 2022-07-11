@@ -24,16 +24,16 @@ public class Dobble {
      * @param numberOfCards el n° de cartas
      * @return generar una lista de cartas
      */
-    private static List<Card> generateCards(int numberOfCards) {
+   private static List<Card> generateCards(int numberOfCards) {
         List<Card> cards = new ArrayList<>();
         int n = getPrimeForKCards(numberOfCards);
-        // the first card
+        // la primera carta
         cards.add(new Card(IntStream.range(1, n + 2)
                 .boxed()
                 .map(Symbol::new)
                 .collect(Collectors.toList())));
 
-        // the next n cards
+        // la siguiente carta
         for (int j = 1; j <= n; j++) {
             Card card = new Card();
             card.addSymbol(new Symbol(1));
@@ -43,7 +43,7 @@ public class Dobble {
             cards.add(card);
         }
 
-        // the next n*n cards
+        // las siguientes cartass multiplicada por n (n*n)
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j++) {
                 Card card = new Card();
@@ -54,11 +54,10 @@ public class Dobble {
                 cards.add(card);
             }
         }
-        // shuffle the deck before returning
+        // barajar el mazo antes de volver
         Collections.shuffle(cards);
         return cards.subList(0, numberOfCards);
-    }
-
+       
     /**
      * Obtener el número primo correcto para el número de caertas
      *
