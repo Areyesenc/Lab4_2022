@@ -38,7 +38,7 @@ public class Player {
     /**
      * obtiene el nombre del jugador
      *
-     * @return el nomnbre del jugadoir
+     * @return el nomnbre del jugador
      */
     public String getName() {
         return name;
