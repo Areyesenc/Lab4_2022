@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class MainMenuPanel extends JPanel {
     /**
-     * Create a new MainMenu panel.
+     * creo un menu  como herenecia
      */
     public MainMenuPanel() {
         super();
