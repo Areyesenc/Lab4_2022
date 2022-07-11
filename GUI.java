@@ -50,7 +50,7 @@ public class GUI {
     }
 
     /**
-     * Navega el panel dado
+     * Navega el panel dado, este principalmente entrega donde se navega en el panel
      *
      * @param panel el actual panel
      * @param path  nombre del panel a navegar
