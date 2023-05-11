@@ -10,6 +10,7 @@ public class Dobble {
     private final List<Card> cards;
 
     /**
+    sadsa
      * Crea un nuevo modelo de baraja de Dobble con el número de cartas dado
      *
      * @param n - el n° de cartas
